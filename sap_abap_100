@@ -1,0 +1,21 @@
+Whenever a user logs on to the system, a screen is displayed. From this screen, the user can start an ABAP program using the menu path.
+
+In this case, the system first loads the program context onto the application server. The program context contains memory areas for variables and complex data objects, information on the screens for user dialogs, and ABAP processing blocks.
+
+The runtime system gets all these program information from the Repository, which is a special part of the database. The sample program has a selection screen as the user dialog, a variable and a structure as data objects, and one ABAP processing block. The list used to display the data is created dynamically at runtime. The ABAP runtime system controls the subsequent program flow.
+
+Because the program contains a selection screen, the ABAP runtime system sends it to the presentation server. The presentation server controls the program flow for as long as the user has not finished entering data in the input fields. Selection screens allow users to enter selection criteria required by the program for it to continue.
+
+As soon as the user has finished entering data on the selection screen, he or she can trigger further processing of the program by choosing Execute. The entered data is automatically placed in its corresponding data objects in the program and the ABAP runtime system resumes control. In the simple program example, there is only one ABAP processing block. The ABAP runtime system triggers sequential processing of this ABAP processing block. If the entries made by the user do not have the correct type, an error message is automatically triggered. The user must correct his or her entries.
+
+A reusable unit is called in the processing block that encapsulates the database access. The reuse unit is a special processing block in an individual program. The actual example shows a method in a global class. When the reuse unit is called, the program in which it is contained is also read from the Repository and loaded to the application server.
+
+In the call, the required data is transferred to the called program, after which the reuse unit is executed. The execution is synchronous, which means that the calling program waits until the reuse unit has been processed completely.
+
+In the example program, read access to the database is programmed in the reuse unit. Correspondingly, information about the database table to be accessed and the row in the table to be read is passed on to the database.
+
+The database returns the requested data record to the program and the runtime system ensures that this data is placed in the appropriate data objects. If a single record is accessed, this data object is usually a structure that contains relevant components for all the required database fields.
+
+This concludes the processing of the reuse unit and control is returned to the calling program, which resumes immediately after the call. When the system exits the reuse unit, the data that was read from the database is written to a corresponding data object for the calling program, from where it can be processed further.
+
+After the reuse unit has been called, the ABAP processing block receives statements for structuring the list with which the result is to be displayed. After the processing block finishes, the runtime system sends the list as a screen to the presentation server.​ 
