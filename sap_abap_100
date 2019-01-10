@@ -19,3 +19,7 @@ The database returns the requested data record to the program and the runtime sy
 This concludes the processing of the reuse unit and control is returned to the calling program, which resumes immediately after the call. When the system exits the reuse unit, the data that was read from the database is written to a corresponding data object for the calling program, from where it can be processed further.
 
 After the reuse unit has been called, the ABAP processing block receives statements for structuring the list with which the result is to be displayed. After the processing block finishes, the runtime system sends the list as a screen to the presentation server.​ 
+
+The Repository consists of all system development objects, such as programs, function modules, definitions of database tables, and so on. The Repository contains objects delivered by SAP as well as those defined by the customer. The Repository is in the database and is independent of the client. This means that a Repository object can be accessed from any client and looks the same in each client in the system.
+
+The database also contains application and customizing data, which is normally client-dependent. This means that every data record is assigned to a particular client and can only be read and changed by users who have logged on to that particular client. 
