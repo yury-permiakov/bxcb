@@ -14,6 +14,9 @@ https://zen.yandex.ru/media/mybanktut/kak-zarabotat-na-kvartiru-5-proverennyh-sp
 https://www.bu.edu/tech/files/2016/05/
 курс по OM и плагинам:
   hr506
+ZXPADu02 is the PAI user exit. This is called during screen validation. Depending on the triggers, the user can not go back thur, the user exit, or SAP's checks can modify before saving to db. 
+
+Badi HRPAD00INFTY has 3 methods, BEFORE_OUTPUT, AFTER_INPUT, and IN_UPDATE. 
 
 SAP SLH:
 https://performancemanager.successfactors.eu/login?company=learninghub
